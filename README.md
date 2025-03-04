@@ -1,4 +1,14 @@
+# My personal Laracast learning
+
 # 30-days-to-learn-laravel-11
+
+<!-- echo "# 30-days-to-learn-laravel-11" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:joasegovia9427/30-days-to-learn-laravel-11.git
+git push -u origin main -->
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
