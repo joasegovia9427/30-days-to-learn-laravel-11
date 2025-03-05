@@ -1,3 +1,3 @@
 <x-layout>
-    Contact
+    Home
 </x-layout>

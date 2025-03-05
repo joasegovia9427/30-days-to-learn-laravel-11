@@ -2,6 +2,8 @@
 
 # 30-days-to-learn-laravel-11
 
+# php artisan serve
+
 <!-- echo "# 30-days-to-learn-laravel-11" >> README.md
 git init
 git add README.md

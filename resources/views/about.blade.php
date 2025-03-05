@@ -1,3 +1,3 @@
 <x-layout>
-    Contact
+    About
 </x-layout>
