@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> {{ $slot }} Page</title>
+    <title>{{ $title ?? 'JoacoApp' }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -23,8 +23,9 @@
                             <div class="ml-10 flex items-baseline space-x-4">
                                 <x-side-nav.nav-link href="/" :active="request()->is('/')"
                                     type="button">Home</x-side-nav.nav-link>
-                                <x-side-nav.nav-link href="about" :active="request()->is('about')">About</x-side-nav.nav-link>
-                                <x-side-nav.nav-link href="contact" :active="request()->is('contact')">Contact</x-side-nav.nav-link>
+                                <x-side-nav.nav-link href="/jobs" :active="request()->is('/jobs')">Jobs</x-side-nav.nav-link>
+                                <x-side-nav.nav-link href="/about" :active="request()->is('/about')">About</x-side-nav.nav-link>
+                                <x-side-nav.nav-link href="/contact" :active="request()->is('/contact')">Contact</x-side-nav.nav-link>
                             </div>
                         </div>
                     </div>
@@ -87,6 +88,8 @@
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                     <a href="/"
                         class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Home</a>
+                    <a href="/jobs"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Jobs</a>
                     <a href="/about"
                         class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
                     <a href="/contact"
@@ -129,10 +132,6 @@
             </div>
         </main>
     </div>
-
-
-
-
 </body>
 
 </html>
