@@ -1,7 +1,8 @@
 {{-- <x-layout heading="Home"> --}}
-<x-layout>
+<x-layout title="{{ $title }}">
     <x-slot:heading>
-        Home Page
+        {{ $title }} Page
     </x-slot:heading>
-    Home content
+
+
 </x-layout>
