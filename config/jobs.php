@@ -1,5 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
+// DEPRECATED - DON'T USE THIS
+// Use the Job model instead
+
 return [
     'list' => [
         [
