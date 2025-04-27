@@ -6,6 +6,13 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Job;
 
 Route::get('/', function () {
+
+    // $jobs = Job::all();
+
+    // dd($jobs->count());
+    // dd($jobs->first());
+    // dd($jobs[0]->title);
+
     return view('home', [
         'title' => 'Home'
     ]);
