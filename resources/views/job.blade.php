@@ -1,14 +1,24 @@
 @php
-    $prevJob = $job['id'] - 1;
+    use App\Models\Job;
 
-    if ($prevJob < 1) {
-        $prevJob = $listSize;
-    }
+    function findNextAvailableJob($currentId, $direction)
+    {
+        $lastItem = Job::all()->last();
 
-    $nextJob = $job['id'] + 1;
+        $nextId = $currentId;
 
-    if ($nextJob > $listSize) {
-        $nextJob = 1;
+        do {
+            $nextId =
+                $direction === 'next'
+                    ? ($nextId + 1 > $lastItem['id']
+                        ? 1
+                        : $nextId + 1)
+                    : ($nextId - 1 < 1
+                        ? $lastItem['id']
+                        : $nextId - 1);
+        } while (!Job::find($nextId));
+
+        return $nextId;
     }
 
     $titleItem = "{$job['title']} - Id: {$job['id']}";
@@ -25,13 +35,15 @@
             </a>
             <span>{{ $titleItem }}</span>
             <div class="flex gap-2 ml-auto">
-                <a href="/jobs/{{ $prevJob }}" class="text-gray-500 hover:text-gray-700">
+                <a href="/jobs/{{ findNextAvailableJob($job['id'], 'prev') }}"
+                    class="text-gray-500 hover:text-gray-700">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                     </svg>
                 </a>
-                <a href="/jobs/{{ $nextJob }}" class="text-gray-500 hover:text-gray-700">
+                <a href="/jobs/{{ findNextAvailableJob($job['id'], 'next') }}"
+                    class="text-gray-500 hover:text-gray-700">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />

@@ -6,6 +6,45 @@
 
 # php artisan tinker
 
+$job = new \App\Models\Job
+
+$job->title = 'Main Director';
+
+$job->salary = '$1,000,000';
+
+$job->description = 'Acme Dir';
+
+$job->location = 'Office';
+
+$job->save();
+
+---
+
+App\Models\Job::create(['title' => 'Acme Director', 'salary' => '$1,.000,.000', 'description' => 'Acme Dir', 'location' => 'Office']);
+
+---
+
+\App\Models\Job::create([
+'title' => 'Director',
+'salary' => '$1,000,000',
+'description' => 'Acme Dir',
+'location' => 'Office'
+]);
+
+---
+
+App\Models\Job::all
+
+App\Models\User::factory()->create();
+
+App\Models\User::factory(5)->create();
+
+App\Models\Job::factory(10)->create();
+
+# php artisan make:model Comment
+
+# php artisan make:factory JobFactory
+
 <!-- echo "# 30-days-to-learn-laravel-11" >> README.md
 git init
 git add README.md
