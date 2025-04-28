@@ -31,6 +31,10 @@ Route::get('/jobs/{param_id}', function (string $param_id) {
         abort(404);
     }
 
+    if (!Job::find($param_id)) {
+        return redirect('/jobs');
+    }
+
     $id = (int) $param_id;
 
     // return view('job');
@@ -41,10 +45,9 @@ Route::get('/jobs/{param_id}', function (string $param_id) {
     // });
 
     $job = Job::find($id);
-    $listSize = Job::count();
     // dd($job);
 
-    return view('job', ['job' => $job, 'listSize' => $listSize]);
+    return view('job', ['job' => $job]);
 });
 
 Route::get('/about', function () {
